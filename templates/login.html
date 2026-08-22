@@ -1,0 +1,130 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="login-container">
+
+    <form method="POST" class="login-form" id="loginForm">
+        {% csrf_token %}
+
+        <h2>Login</h2>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <div class="input-box" id="emailBox">
+            <label>Email</label>
+            <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter email"
+                required
+            >
+        </div>
+
+        <div class="input-box" id="passwordBox">
+            <label>Password</label>
+
+            <div class="password-wrapper">
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter password"
+                    required
+                >
+
+                <span
+                    class="password-icon"
+                    id="passwordIcon"
+                    onclick="togglePassword()"
+                >
+                    👁️
+                </span>
+            </div>
+        </div>
+
+        <button type="submit" id="loginBtn">Login</button>
+
+        <div class="register-link">
+            <p>Don't have an account?</p>
+            <a href="{% url 'register' %}">Register</a>
+        </div>
+
+    </form>
+
+</div>
+
+
+<script>
+
+// Password Show / Hide
+function togglePassword() {
+
+    const password = document.getElementById("password");
+    const icon = document.getElementById("passwordIcon");
+
+    if (password.type === "password") {
+
+        password.type = "text";
+        icon.textContent = "🙈";
+
+    } else {
+
+        password.type = "password";
+        icon.textContent = "👁️";
+    }
+}
+
+
+// Email Enter → Password
+const form = document.getElementById("loginForm");
+const emailBox = document.getElementById("emailBox");
+const passwordBox = document.getElementById("passwordBox");
+
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
+email.addEventListener("keydown", function(e) {
+
+    if (e.key === "Enter") {
+
+        e.preventDefault();
+
+        if (email.value.trim() === "") {
+            alert("Please enter your email");
+            return;
+        }
+
+        passwordBox.style.display = "block";
+        password.focus();
+    }
+
+});
+
+
+// Password Enter → Login
+password.addEventListener("keydown", function(e) {
+
+    if (e.key === "Enter") {
+
+        e.preventDefault();
+
+        if (password.value.trim() === "") {
+            alert("Please enter your password");
+            return;
+        }
+
+        form.submit();
+    }
+
+});
+
+</script>
+
+{% endblock %}
+

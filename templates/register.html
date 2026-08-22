@@ -1,0 +1,172 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register</title>
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <h2>Create Account</h2>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <!-- Full Name -->
+            <div class="input-box">
+
+                <label for="username">Full Name</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter full name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Email -->
+            <div class="input-box">
+
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter email"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="input-box">
+
+                <label for="password">Password</label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"
+                        required
+                    >
+
+                    <span
+                        class="eye-icon"
+                        onclick="togglePassword('password', this)"
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Confirm Password -->
+            <div class="input-box">
+
+                <label for="con_password">Confirm Password</label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="con_password"
+                        name="con_password"
+                        placeholder="Confirm password"
+                        required
+                    >
+
+                    <span
+                        class="eye-icon"
+                        onclick="togglePassword('con_password', this)"
+                    >
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Register Button -->
+            <button type="submit" class="register-btn">
+                Register
+            </button>
+
+        </form>
+
+
+        <!-- Login Link -->
+        <p class="login-link">
+
+            Already have an account?
+
+            <a href="{% url 'login' %}">
+                Login
+            </a>
+
+        </p>
+
+    </div>
+
+
+    <script>
+
+        function togglePassword(id, iconBox) {
+
+            const password = document.getElementById(id);
+            const icon = iconBox.querySelector("i");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+
+            } else {
+
+                password.type = "password";
+
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

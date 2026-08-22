@@ -1,0 +1,94 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+<div class="checkout-container">
+
+    <div class="checkout-left">
+
+        <h2>Checkout</h2>
+        <p class="subtitle">Complete your information to place your order.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    value="{{ request.user.first_name }}"
+                    placeholder="Enter your name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="Enter phone number"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Delivery Address</label>
+                <textarea
+                    name="address"
+                    placeholder="Enter your full address"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="place-order-btn">
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="checkout-right">
+
+        <h2>Order Summary</h2>
+
+        {% for item in cart_items %}
+
+        <div class="summary-product">
+
+            <div>
+                <h4>{{ item.product.name }}</h4>
+                <p>Quantity: {{ item.quantity }}</p>
+            </div>
+
+            <strong>
+                {{ item.product.price }} × {{ item.quantity }}
+            </strong>
+
+        </div>
+
+        {% endfor %}
+
+
+        <div class="summary-line">
+            <span>Total Product</span>
+            <strong>{{ total_product }}</strong>
+        </div>
+
+        <div class="summary-total">
+            <span>Total Price</span>
+            <strong>{{ total_price }} SAR</strong>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

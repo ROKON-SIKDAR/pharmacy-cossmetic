@@ -1,0 +1,79 @@
+
+{% extends "index.html" %}
+
+
+
+{% block content %}
+
+
+
+
+<div class="form-container">
+
+    <h2>Add Product Medicin</h2>
+    
+    {% if messages %}
+    {% for message in messages %}
+    <div class="message">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+
+    <div class="listproduct"><a href="{% url 'listproduct' %}">List Product</a></div>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Product Name -->
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" name="name" placeholder="Enter product name" required>
+        </div>
+
+        <!-- Location -->
+        <div class="form-group">
+            <label>Location</label>
+            <input type="text" name="location" placeholder="Enter location">
+        </div>
+
+        <!-- Product Date -->
+        <div class="form-group">
+            <label>Product Date</label>
+            <input type="date" name="date" required>
+        </div>
+
+        <!-- Expired Date -->
+        <div class="form-group">
+            <label>Expired Date</label>
+            <input type="date" name="expired" required>
+        </div>
+
+        <!-- Quantity -->
+        <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" name="quantity" min="0" placeholder="Enter quantity" onwheel="this.blur()" required>
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number" name="price" min="0" placeholder="Enter price" onwheel="this.blur()" required>
+        </div>
+
+
+        
+        <!-- Image -->
+        <div class="form-group">
+            <label>Product Image</label>
+            <input type="file" name="image" accept="image/*">
+        </div>
+
+        <button type="submit">Add Product</button>
+
+    </form>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/order_success.css' %}">
+
+<div class="success-container">
+
+    <div class="success-card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h1>Order Successful!</h1>
+
+        <p class="success-text">
+            Thank you for your order.
+            Your order has been successfully placed.
+        </p>
+
+        <div class="order-info">
+
+            <p>
+                Order ID:
+                <strong>#{{ order.id }}</strong>
+            </p>
+
+            <p>
+                Customer:
+                <strong>{{ order.name }}</strong>
+            </p>
+
+            <p>
+                Phone:
+                <strong>{{ order.phone }}</strong>
+            </p>
+
+            <p>
+                Total Product:
+                <strong>{{ order.total_product }}</strong>
+            </p>
+
+            <p>
+                Total Price:
+                <strong>{{ order.total_price }} SAR</strong>
+            </p>
+
+        </div>
+
+        <a href="{% url 'index' %}" class="continue-btn">
+            Continue Shopping
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

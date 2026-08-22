@@ -1,0 +1,968 @@
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    max-width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    text-decoration: none;
+    color: #111;
+    font-size: 22px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   MOBILE BUTTON
+========================= */
+
+.menu-btn {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    padding: 5px;
+    color: #0378f4;
+    text-align: end;
+}
+
+
+/* =========================
+   NAV MENU
+========================= */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* =========================
+   NAV LINK
+========================= */
+
+.nav-link {
+    text-decoration: none;
+    color: #222;
+
+    padding: 10px 12px;
+
+    white-space: nowrap;
+
+    border-radius: 6px;
+}
+
+.nav-link:hover {
+    background: #f1f1f1;
+}
+
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.dropdown {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.dropdown-btn {
+    border: none;
+    background: transparent;
+
+    color: #222;
+
+    padding: 10px 12px;
+
+    font-size: 15px;
+    font-family: inherit;
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    border-radius: 6px;
+}
+
+.dropdown-btn:hover {
+    background: #f1f1f1;
+}
+
+
+/* =========================
+   DROPDOWN MENU
+========================= */
+
+.dropdown-menu {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 5px);
+    left: 0;
+
+    min-width: 170px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+    padding: 6px 0;
+
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 10px 14px;
+
+    text-decoration: none;
+    color: #222;
+
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background: #f3f3f3;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+    display: flex;
+
+    min-width: 0;
+    flex: 1;
+
+    max-width: 280px;
+
+    border: 1px solid #ccc;
+    border-radius: 7px;
+
+    overflow: hidden;
+}
+
+.search-box input {
+    width: 100%;
+    min-width: 0;
+
+    border: none;
+    outline: none;
+
+    padding: 10px 12px;
+
+    font-size: 14px;
+}
+
+.search-box button {
+    border: none;
+
+    background: #222;
+    color: white;
+
+    padding: 0 14px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.search-box button:hover {
+    background: #444;
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-btn {
+    text-decoration: none;
+
+    background: #007bff;
+    color: white;
+
+    padding: 9px 14px;
+
+    border-radius: 6px;
+
+    white-space: nowrap;
+}
+
+.login-btn:hover {
+    background: #0069d9;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-btn {
+    text-decoration: none;
+
+    background: #28a745;
+    color: white;
+
+    padding: 9px 14px;
+
+    border-radius: 6px;
+
+    white-space: nowrap;
+}
+
+.profile-btn:hover {
+    background: #218838;
+}
+
+
+/* ==================================================
+   DESKTOP
+   1201px +
+================================================== */
+
+@media (min-width: 1201px) {
+
+    .nav-container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .nav-menu {
+        gap: 10px;
+    }
+
+}
+
+
+/* ==================================================
+   LAPTOP
+   1025px - 1200px
+================================================== */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .nav-menu {
+        gap: 3px;
+    }
+
+    .nav-link,
+    .dropdown-btn {
+        padding: 9px 8px;
+        font-size: 14px;
+    }
+
+    .login-btn,
+    .profile-btn {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .search-box {
+        max-width: 220px;
+    }
+
+}
+
+
+/* ==================================================
+   TABLET PRO
+   901px - 1024px
+================================================== */
+
+@media (min-width: 901px) and (max-width: 1024px) {
+
+    .nav-container {
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .nav-menu {
+        gap: 2px;
+    }
+
+    .nav-link,
+    .dropdown-btn {
+        padding: 8px 6px;
+        font-size: 13px;
+    }
+
+    .search-box {
+        max-width: 170px;
+    }
+
+    .search-box input {
+        padding: 8px;
+    }
+
+    .search-box button {
+        padding: 0 8px;
+    }
+
+    .login-btn,
+    .profile-btn {
+        padding: 8px 8px;
+        font-size: 13px;
+    }
+
+}
+
+
+/* ==================================================
+   TABLET AIR
+   769px - 900px
+================================================== */
+
+@media (min-width: 769px) and (max-width: 900px) {
+
+    .nav-container {
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-menu {
+        gap: 1px;
+    }
+
+    .nav-link,
+    .dropdown-btn {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+
+    .search-box {
+        max-width: 145px;
+    }
+
+    .search-box input {
+        padding: 8px 6px;
+    }
+
+    .search-box button {
+        padding: 0 6px;
+        font-size: 12px;
+    }
+
+    .login-btn,
+    .profile-btn {
+        padding: 7px 7px;
+        font-size: 12px;
+    }
+
+}
+
+
+/* ==================================================
+   TABLET / IPAD MINI
+   601px - 768px
+================================================== */
+
+@media (min-width: 601px) and (max-width: 768px) {
+
+    .nav-container {
+        min-height: 60px;
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .menu-btn {
+        display: block;
+        margin-left: auto;
+    }
+
+    .nav-menu {
+        display: none;
+
+        position: absolute;
+
+        top: 60px;
+        left: 0;
+
+        width: 100%;
+        max-width: 100%;
+
+        background: #fff;
+
+        padding: 12px 15px;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 5px;
+
+        border-top: 1px solid #ddd;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-link,
+    .dropdown-btn {
+        width: 100%;
+        text-align: left;
+
+        padding: 11px 12px;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+
+        width: 100%;
+
+        box-shadow: none;
+
+        border-radius: 5px;
+
+        margin-top: 3px;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .login-btn,
+    .profile-btn {
+        width: 100%;
+        text-align: center;
+
+        margin-top: 3px;
+    }
+}
+
+
+/* ==================================================
+   MOBILE MINI
+   481px - 600px
+================================================== */
+
+@media (min-width: 481px) and (max-width: 600px) {
+
+    .nav-container {
+        min-height: 58px;
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .menu-btn {
+        display: block;
+        margin-left: auto;
+    }
+
+    .nav-menu {
+        display: none;
+
+        position: absolute;
+
+        top: 58px;
+        left: 0;
+
+        width: 100%;
+        max-width: 100%;
+
+        padding: 10px 12px;
+
+        background: #fff;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 4px;
+
+        border-top: 1px solid #ddd;
+
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-link,
+    .dropdown-btn {
+        width: 100%;
+
+        padding: 10px;
+        text-align: left;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+
+        width: 100%;
+
+        box-shadow: none;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .login-btn,
+    .profile-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* ==================================================
+   SMALL MOBILE
+   320px - 480px
+================================================== */
+
+@media (max-width: 480px) {
+
+    .nav-container {
+        min-height: 56px;
+        padding: 0 10px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .menu-btn {
+        display: block;
+        margin-left: auto;
+
+        font-size: 25px;
+    }
+
+    .nav-menu {
+        display: none;
+
+        position: absolute;
+
+        top: 56px;
+        left: 0;
+
+        width: 100%;
+        max-width: 100%;
+
+        padding: 10px;
+
+        background: #fff;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 4px;
+
+        border-top: 1px solid #ddd;
+
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-link,
+    .dropdown-btn {
+        width: 100%;
+
+        padding: 10px;
+
+        font-size: 14px;
+
+        text-align: left;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+
+        width: 100%;
+
+        box-shadow: none;
+
+        margin-top: 2px;
+    }
+
+    .dropdown-menu a {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .search-box input {
+        min-width: 0;
+        padding: 9px;
+    }
+
+    .search-box button {
+        padding: 0 10px;
+    }
+
+    .login-btn,
+    .profile-btn {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 9px;
+    }
+}
+
+
+/* ==================================================
+   VERY SMALL MOBILE
+   320px এর নিচে
+================================================== */
+
+@media (max-width: 319px) {
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .menu-btn {
+        font-size: 23px;
+    }
+
+    .nav-menu {
+        top: 54px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* footer start  */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    width: 100%;
+
+    background: #123524;
+
+    color: white;
+
+    margin-top: 50px;
+}
+
+
+/* =========================
+   FOOTER CONTAINER
+========================= */
+
+.footer-container {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 50px 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr
+        1.5fr;
+
+    gap: 40px;
+}
+
+
+/* =========================
+   FOOTER SECTION
+========================= */
+
+.footer-section h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 18px;
+
+    color: #ffffff;
+}
+
+
+.footer-section p {
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #d7d7d7;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   FOOTER LINKS
+========================= */
+
+.footer-section a {
+
+    display: block;
+
+    text-decoration: none;
+
+    color: #d7d7d7;
+
+    font-size: 15px;
+
+    margin-bottom: 10px;
+
+    transition: 0.3s;
+}
+
+
+.footer-section a:hover {
+
+    color: #ffffff;
+
+    padding-left: 5px;
+}
+
+
+/* =========================
+   FOOTER BOTTOM
+========================= */
+
+.footer-bottom {
+
+    border-top: 1px solid rgba(255,255,255,0.15);
+
+    text-align: center;
+
+    padding: 18px 15px;
+}
+
+
+.footer-bottom p {
+
+    font-size: 14px;
+
+    color: #cccccc;
+}
+
+
+/* =========================
+   LAPTOP
+========================= */
+
+@media (max-width: 1100px) {
+
+    .footer-container {
+
+        grid-template-columns:
+            1.5fr
+            1fr
+            1fr
+            1.3fr;
+
+        gap: 15px;
+
+        padding: 35px 15px;
+    }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+
+    .footer-container {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 25px;
+
+        padding: 30px 15px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .footer-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+
+        padding: 35px 20px;
+    }
+
+
+    .footer-section {
+
+        text-align: center;
+    }
+
+
+    .footer-section a:hover {
+
+        padding-left: 0;
+    }
+
+
+    .footer-section h3 {
+
+        font-size: 19px;
+
+        margin-bottom: 14px;
+    }
+
+
+    .footer-section p,
+    .footer-section a {
+
+        font-size: 14px;
+    }
+
+
+    .footer-bottom {
+
+        padding: 15px 10px;
+    }
+
+
+    .footer-bottom p {
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+}
+
+/* footer end  */

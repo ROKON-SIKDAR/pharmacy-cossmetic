@@ -1,0 +1,88 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+
+
+<div class="cart-container">
+
+    <h2>My Cart</h2>
+
+    {% if cart_items %}
+
+        {% for item in cart_items %}
+
+        <div class="cart-item">
+
+            <div class="product-info">
+
+                {% if item.product.image %}
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                {% endif %}
+
+                <div>
+                    <h3>{{ item.product.name }}</h3>
+                    <p>Price: {{ item.product.price }} ৳</p>
+                </div>
+
+            </div>
+
+            <div class="quantity-box">
+
+                <a href="{% url 'decrease_quantity' item.id %}"
+                   class="qty-btn minus">−</a>
+
+                <span>{{ item.quantity }}</span>
+
+                <a href="{% url 'increase_quantity' item.id %}"
+                   class="qty-btn plus">+</a>
+
+            </div>
+
+            <div class="item-total">
+
+                <strong>
+                    {{ item.product.price|add:"0" }} ৳ × {{ item.quantity }}
+                </strong>
+
+                <p>
+                    Total:
+                    {% widthratio item.product.price 1 item.quantity %} ৳
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+        <div class="cart-summary">
+
+            <div>
+                <span>Total Product</span>
+                <strong>{{ total_product }}</strong>
+            </div>
+
+            <div>
+                <span>Total Price</span>
+                <strong>{{ total_price }} ৳</strong>
+            </div>
+
+            <a href="{% url 'checkout' %}" class="checkout-btn">
+                Checkout
+            </a>
+
+        </div>
+
+    {% else %}
+
+        <div class="empty-cart">
+            <h3>Your Cart is Empty</h3>
+            <a href="{% url 'index' %}">Continue Shopping</a>
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

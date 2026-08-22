@@ -1,0 +1,525 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+
+/* =========================
+   TABLE WRAPPER
+========================= */
+
+.table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 0 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.product-table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.product-table th {
+    height: 48px;
+    padding: 8px 5px;
+    background: #1f2937;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+.product-table td {
+    height: 60px;
+    padding: 7px 5px;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+    border-bottom: 1px solid #e5e7eb;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.product-table tbody tr:hover {
+    background: #eef4ff;
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.product-img {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    margin: auto;
+}
+
+.no-image {
+    font-size: 10px;
+    color: #888;
+}
+
+
+/* =========================
+   NAME
+========================= */
+
+.product-name {
+    font-weight: 600;
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.price {
+    font-weight: bold;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.edit-btn,
+.delete-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 6px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.edit-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.delete-btn {
+    background: #dc2626;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #1d4ed8;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty-data {
+    height: 100px !important;
+    text-align: center !important;
+    color: #777 !important;
+}
+
+
+/* ==================================================
+   MINI MOBILE
+   320px - 374px
+================================================== */
+/* 
+@media (max-width: 374px) {
+
+    .table-wrapper {
+        padding: 0 6px;
+        margin: 12px auto;
+    }
+
+    .product-table {
+        font-size: 9px;
+    }
+
+    .product-table th {
+        height: 38px;
+        padding: 4px 2px;
+        font-size: 9px;
+    }
+
+    .product-table td {
+        height: 45px;
+        padding: 4px 2px;
+        font-size: 9px;
+    }
+
+    .product-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 4px 5px;
+        font-size: 8px;
+    }
+} */
+
+
+
+/* ==================================================
+   MOBILE
+   375px - 575px
+================================================== */
+/* 
+@media (min-width: 375px) and (max-width: 575px) {
+
+    .table-wrapper {
+        padding: 0 8px;
+        margin: 15px auto;
+    }
+
+    .product-table th {
+        height: 42px;
+        padding: 5px 3px;
+        font-size: 10px;
+    }
+
+    .product-table td {
+        height: 50px;
+        padding: 5px 3px;
+        font-size: 10px;
+    }
+
+    .product-img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 5px 6px;
+        font-size: 9px;
+    }
+} */
+
+
+/* ==================================================
+   HIDE COLUMNS ON MINI MOBILE + MOBILE
+   ID, IMAGE, UPDATED, CREATED, DATE
+================================================== */
+
+@media (max-width: 575px) {
+
+    .hide-mobile {
+        display: none !important;
+    }
+
+}
+
+/* ==================================================
+   MINI TABLET
+   576px - 767px
+================================================== */
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+    .table-wrapper {
+        padding: 0 10px;
+        margin: 18px auto;
+    }
+
+    .product-table th {
+        height: 45px;
+        padding: 6px 4px;
+        font-size: 10px;
+    }
+
+    .product-table td {
+        height: 54px;
+        padding: 6px 4px;
+        font-size: 10px;
+    }
+
+    .product-img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 5px 7px;
+        font-size: 9px;
+    }
+}
+
+
+/* ==================================================
+   TABLET
+   768px - 991px
+================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .table-wrapper {
+        padding: 0 12px;
+        margin: 20px auto;
+    }
+
+    .product-table th {
+        height: 48px;
+        padding: 7px 4px;
+        font-size: 11px;
+    }
+
+    .product-table td {
+        height: 58px;
+        padding: 7px 4px;
+        font-size: 11px;
+    }
+
+    .product-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+}
+
+
+/* ==================================================
+   TABLET PRO
+   992px - 1199px
+================================================== */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    .table-wrapper {
+        padding: 0 15px;
+        margin: 22px auto;
+    }
+
+    .product-table th {
+        height: 50px;
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+
+    .product-table td {
+        height: 62px;
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+
+    .product-img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 6px 9px;
+        font-size: 10px;
+    }
+}
+
+
+/* ==================================================
+   LAPTOP
+   1200px - 1599px
+================================================== */
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+
+    .table-wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 18px;
+    }
+
+    .product-table th {
+        height: 52px;
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+
+    .product-table td {
+        height: 64px;
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+
+    .product-img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+}
+
+
+/* ==================================================
+   LARGE LAPTOP / DESKTOP
+================================================== */
+
+@media (min-width: 1600px) {
+
+    .table-wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .product-table th {
+        height: 54px;
+        font-size: 13px;
+    }
+
+    .product-table td {
+        height: 66px;
+        font-size: 13px;
+    }
+
+    .product-img {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+
+.product-table tbody tr:nth-child(odd) {
+    background: #f1f5f913;
+}
+
+.product-table tbody tr:nth-child(even) {
+    background: #eec5c57e;
+}
+
+.product-table tbody tr: {
+    background: #c0cff1;
+}
+
+.product-table tbody tr:nth-child(even) {
+    background: #c5dbf1d5;
+}
+
+
+/* plass minuss  */
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.quantity-box a {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.quantity-box span {
+    min-width: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.listproduct {
+    text-align: end;
+}
+.listproduct a {
+    text-decoration: none;
+    text-align: end;
+    color: white;
+    background-color: blue;
+    font-weight: bold;
+    margin: 10px;
+    padding: 3px;
+}
+
+
+
+/* paginator next  */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+    width: 100%;
+}
+
+.pagination a {
+    text-decoration: none;
+    background: #333;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background: #555;
+}
+
+.pagination span {
+    font-size: 15px;
+}

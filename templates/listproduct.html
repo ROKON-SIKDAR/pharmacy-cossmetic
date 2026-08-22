@@ -1,0 +1,112 @@
+
+{% extends "index.html" %}
+
+{% block content %}
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="message">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+
+<div class="table-wrapper">
+
+    <table class="product-table">
+        
+        <thead>
+            <tr>
+                <th class="hide-mobile">ID</th>
+                <th class="hide-mobile">Image</th>
+                <th>Name</th>
+                <th class="hide-mobile">Location</th>
+                <th class="hide-mobile">Updated</th>
+                <th class="hide-mobile">Created</th>
+                <th class="hide-mobile">Date</th>
+                <th class="hide-mobile">Expired</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in page %}
+            <tr>
+                <td class="hide-mobile">{{ forloop.counter }}</td>
+
+                <td class="hide-mobile">
+                    {% if i.image %}
+                        <img src="{{ i.image.url }}" class="product-img" alt="{{ i.name }}" height="50" width="50">
+                    {% else %}
+                        <span class="no-image">No Image</span>
+                    {% endif %}
+                </td>
+
+                <td class="product-name">{{ i.name }}</td>
+                <td class="hide-mobile">{{ i.location }}</td>
+                <td class="hide-mobile">{{ i.updated_at|date:"d-m-Y" }}</td>
+                <td class="hide-mobile">{{ i.created_at|date:"d-m-Y" }}</td>
+                <td class="hide-mobile">{{ i.date|date:"d-m-Y" }}</td>
+                <td class="hide-mobile">Exp-{{ i.expired|date:"d-m-Y" }}</td>
+
+                <td>
+                    <div class="quantity-box">
+                      <a href="{% url 'quantity_minus' i.id %}">-</a>
+                      <span>{{ i.quantity }}</span>
+                      <a href="{% url 'quantity_plus' i.id %}">+</a>
+                  </div>
+                </td>
+
+                <td class="price">৳{{ i.price }}</td>
+
+                <td>
+                    <a href="{% url 'edit' i.id %}" class="edit-btn">
+                        Edit
+                    </a>
+                </td>
+
+                <td>
+                    <a href="{% url 'delete' i.id %}"
+                       class="delete-btn"
+                       onclick="return confirm('Are you sure you want to delete this product?');">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+
+            {% empty %}
+            <tr>
+                <td colspan="11" class="empty-data">
+                    No Product Found
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+{% comment %} Pagenitor page next   {% endcomment %}
+
+<div class="pagination">
+
+    {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    <span>
+        Page {{ page.number }} of {{ page.paginator.num_pages }}
+    </span>
+
+    {% if page.has_next %}
+        <a href="?page={{ page.next_page_number }}">Next</a>
+    {% endif %}
+
+</div>
+
+
+
+{% endblock content %}

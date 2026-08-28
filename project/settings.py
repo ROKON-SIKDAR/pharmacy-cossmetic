@@ -10,27 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
-
-import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-SECRET_KEY = os.environ.get("SECRET_KEY")
-
-DEBUG = os.environ.get("DEBUG", "False") == "True"
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+SECRET_KEY = 'django-insecure-c&pesq#-jpiokd%#3$f+$pt0b&znqdxmwi%i_tbqneiq%s2=a+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
-
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost",]
 
 
 # Application definition

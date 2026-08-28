@@ -248,6 +248,7 @@
     {% for i in data %}
 
     <div class="product-card">
+        
 
         <!-- Image -->
         <div class="product-image">
@@ -266,20 +267,13 @@
             {{ i.name }}
         </div>
 
-
-        <!-- Discount Left + Price Right -->
-        <div class="price-row">
-
-            <div class="discount">
-                {{ i.discount }}% OFF
-            </div>
-
-            <div class="price">
-                {{ i.price }} ৳
-            </div>
-
-        </div>
-
+        
+        {% if i.discount > 0 %}
+        <del>৳ {{ i.price }}</del>
+        <strong>৳ {{ i.final_price }}</strong>
+        {% else %}
+        <strong>৳ {{ i.price }}</strong>
+        {% endif %}
 
         <!-- View Left + Add Cart Right -->
         <div class="button-row">

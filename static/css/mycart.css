@@ -56,7 +56,7 @@
 }
 
 .quantity-box a {
-    width: 35px;
+    width: 15px;
     height: 35px;
 
     display: flex;
@@ -74,7 +74,7 @@
 
 .quantity-box span {
     font-size: 18px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .item-total {

@@ -88,13 +88,14 @@
 .old-price {
     color: #999;
     text-decoration: line-through;
-    font-size: 14px;
+    
 }
 
 .discount-price {
     color: #e53935;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
+    font-size: 40px;
 }
 
 .discount {
@@ -104,7 +105,7 @@
     padding: 4px 7px;
     border-radius: 5px;
 
-    font-size: 11px;
+    font-size: 31px;
     font-weight: 600;
 }
 
@@ -230,7 +231,7 @@
     }
 
     .discount-price {
-        font-size: 17px;
+        font-size: 10px;
     }
 
     .product-buttons {
@@ -256,12 +257,12 @@
         font-size: 11px;
     }
 
-    .discount-price {
-        font-size: 15px;
+    .discount-price h6 div {
+        font-size: 10px;
     }
 
     .discount {
-        font-size: 9px;
+        font-size: 60px;
     }
 
 }
@@ -290,3 +291,5 @@
     font-weight: bold;
 }
 /* end  */
+
+

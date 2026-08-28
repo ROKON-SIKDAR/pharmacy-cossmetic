@@ -44,14 +44,14 @@
                     {% endif %}
                 </td>
 
-                <td class="product-name">{{ i.name }}</td>
+                <td>{{ i.name }}</td>
                 <td class="hide-mobile">{{ i.location }}</td>
                 <td class="hide-mobile">{{ i.updated_at|date:"d-m-Y" }}</td>
                 <td class="hide-mobile">{{ i.created_at|date:"d-m-Y" }}</td>
                 <td class="hide-mobile">{{ i.date|date:"d-m-Y" }}</td>
                 <td class="hide-mobile">Exp-{{ i.expired|date:"d-m-Y" }}</td>
 
-                <td>
+                <td class=>
                     <div class="quantity-box">
                       <a href="{% url 'quantity_minus' i.id %}">-</a>
                       <span>{{ i.quantity }}</span>
@@ -59,7 +59,14 @@
                   </div>
                 </td>
 
-                <td class="price">৳{{ i.price }}</td>
+                <td class="price"> {% if i.discount > 0 %}
+                <h6>
+                <del>{{ i.price }}৳</del>
+                <div>{{ i.final_price }}৳</div>
+                </h6>
+                {% else %}
+                <h3>{{ i.price }}৳</h3>
+                {% endif %} </td>
 
                 <td>
                     <a href="{% url 'edit' i.id %}" class="edit-btn">

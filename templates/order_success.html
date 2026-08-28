@@ -6,6 +6,14 @@
 
 <link rel="stylesheet" href="{% static 'css/order_success.css' %}">
 
+{% if messages %}
+    {% for message in messages %}
+        <div class="message {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
 <div class="success-container">
 
     <div class="success-card">
@@ -15,6 +23,16 @@
         </div>
 
         <h1>Order Successful!</h1>
+     
+
+        {% if messages %}
+    {% for message in messages %}
+        <div class="message {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% endif %}   
+
 
         <p class="success-text">
             Thank you for your order.

@@ -52,6 +52,7 @@ def product(request):
 
         quantity = request.POST.get('quantity')
         price = request.POST.get('price')
+        discount = request.POST.get('discount') or 0
 
         image = request.FILES.get('image')
         exists = Product.objects.annotate(
@@ -65,7 +66,7 @@ def product(request):
             return redirect('edit', id=exists.id)
         
         Product.objects.create(name=name, location=location, date=date, 
-        expired=expired, quantity=quantity, price=price, image=image)
+        expired=expired, quantity=quantity, price=price, discount=discount, image=image)
         messages.success(request, 'Product Successfully Added')
         return redirect('product')
         
@@ -141,6 +142,7 @@ def edit(request, id):
     
         product.quantity = request.POST.get('quantity')
         product.price = request.POST.get('price')
+        product.discount = request.POST.get('discount')
 
         if request.FILES.get('image'):
            product.image = request.FILES.get('image')

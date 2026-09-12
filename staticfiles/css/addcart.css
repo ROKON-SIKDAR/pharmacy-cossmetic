@@ -1,5 +1,4 @@
-
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -153,9 +152,9 @@ body {
 
 .price {
 
-    font-size: 39px;
+    font-size: 19px;
 
-    font-weight: 900;
+    font-weight: 700;
 
     color: #222;
 }
@@ -510,5 +509,4 @@ body {
     }
 
 }
-
 

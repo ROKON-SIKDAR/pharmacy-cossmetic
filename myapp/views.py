@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from rapidfuzz import fuzz
 from django.db.models.functions import Lower, Trim
+from django.db.models import Sum
 
 # Create your views here.
 
@@ -16,7 +17,16 @@ def index(request):
 
     search = request.GET.get('search', '').strip()
     data = Product.objects.all()
+
+    total_product = 0
     
+    if request.user.is_authenticated:
+        cart_items = Cart.objects.filter(user=request.user)
+    
+        for item in cart_items:
+         total_product += item.quantity
+    
+
     if search:
         products = list(data)
         
@@ -37,11 +47,11 @@ def index(request):
         
             data = [product for product, score in result]
 
-    return render(request, 'index.html', {'data': data})
+    return render(request, 'index.html', {'data': data, 'total_product': total_product})
 
 
 
-@login_required(login_url='login')
+
 def product(request):
     if request.method == "POST":
         name = request.POST.get('name').strip()
@@ -205,7 +215,7 @@ def register(request):
     return render(request, 'register.html')
 
 
-@login_required(login_url='login')
+
 def addcart(request, id):
     product = Product.objects.get(id=id)
 
@@ -229,7 +239,7 @@ def addcart(request, id):
     return redirect('index')
 
 
-@login_required
+
 def mycart(request):
 
     cart_items = Cart.objects.filter(user=request.user)
@@ -248,7 +258,7 @@ def mycart(request):
         'total_price': total_price,
     })
 
-@login_required(login_url='login')
+
 def cart_quantity_pluss(request, id):
 
     cart_item = Cart.objects.get(id=id)
@@ -259,7 +269,7 @@ def cart_quantity_pluss(request, id):
     return redirect('mycart')
 
 
-@login_required(login_url='login')
+
 def cart_quantity_minuss(request, id):
 
     cart_item = Cart.objects.get(id=id)
@@ -273,7 +283,7 @@ def cart_quantity_minuss(request, id):
     return redirect('mycart')
 
 
-@login_required(login_url='login')
+
 def checkout(request):
 
     cart_items = Cart.objects.filter(user=request.user)

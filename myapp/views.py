@@ -12,7 +12,7 @@ from django.db.models import Sum
 
 # Create your views here.
 
-
+@login_required(login_url='login')
 def index(request):
 
     search = request.GET.get('search', '').strip()
@@ -51,7 +51,7 @@ def index(request):
 
 
 
-
+@login_required(login_url='login')
 def product(request):
     if request.method == "POST":
         name = request.POST.get('name').strip()
@@ -82,7 +82,7 @@ def product(request):
         
     return render(request, 'product.html')
 
-
+@login_required(login_url='login')
 def listproduct(request):
     search = request.GET.get('search', '').strip()
     data = Product.objects.all()
@@ -215,7 +215,7 @@ def register(request):
     return render(request, 'register.html')
 
 
-
+@login_required(login_url='login')
 def addcart(request, id):
     product = Product.objects.get(id=id)
 
@@ -239,7 +239,7 @@ def addcart(request, id):
     return redirect('index')
 
 
-
+@login_required(login_url='login')
 def mycart(request):
 
     cart_items = Cart.objects.filter(user=request.user)

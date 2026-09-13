@@ -159,6 +159,20 @@
 </nav>
 
 
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="success-message">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+
+
 <script>
 
     // =========================
@@ -242,6 +256,7 @@
 
 
 <div class="product-container">
+
 
     {% for i in data %}
 

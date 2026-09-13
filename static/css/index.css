@@ -293,3 +293,20 @@
 /* end  */
 
 
+
+
+/* this one add to cart sucess message  */
+
+.success-message {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    background: #373a38;
+    color: red;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 25px;
+}
+
+/* --------------------------- */

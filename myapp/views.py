@@ -235,6 +235,7 @@ def addcart(request, id):
             quantity=1
         )
         cart.save()
+        messages.success(request, "Add success")
 
     return redirect('index')
 
